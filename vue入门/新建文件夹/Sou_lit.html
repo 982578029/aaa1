@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>朝阳图书馆</title>
+	<meta content="">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/ind1.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
+
+    <style>
+    	body{
+    		background: #fff;
+    	}
+    	.S_input{
+			z-index:999;
+			width:100%;
+			height:13.4vw;
+			background: #f3f1f1;
+			overflow: hidden;
+			display: fixed;
+		}
+		.S_left{
+			width:7vw;
+			height:9vw;
+			display: inline-block;
+			position: absolute;
+			top:0;
+			bottom:0;
+			left: 2vw;
+			margin: auto;
+			line-height: 9vw;
+			text-align: center;
+			font-size: 6vw;
+		}
+		.S_left a{
+			display: block;
+		}
+		.S-right{
+			position: absolute;
+			top:0;
+			bottom:0;
+			right: 2vw;
+			margin: auto;
+			width:12vw;
+			height:6vw;
+			line-height: 6vw;
+			text-align: center;
+			display: inline-block;
+			background: #fb7a86;
+			color:#fff;
+			font-size: 3.4vw;
+			border-radius: 3vw;
+
+		}
+		.Imput{
+			position: relative;
+			left:-3vw;
+			width:75vw;
+			height:8vw;
+			margin:2.7vw auto;
+			background: rgba(228,226,221,.7);
+			border-radius: 4vw;
+
+		}
+		.Imput span{
+			width:12vw;
+			height:8vw;
+			position:relative;
+			top:0;
+			bottom:0;
+			margin:auto;
+			display: block;
+			font-weight:100;
+			line-height:8vw;
+			color:#fff;
+			font-size:5vw;
+			text-align:center;
+		}
+	
+		.Imput span:last-child{
+			float:right;
+
+		}
+		.Imput input{
+			height:100%;
+			border:none;
+			width:54vw;
+			background: transparent;
+			color:#fff;
+			margin-left: 5vw;
+		}
+		.history{
+			width: 90vw;
+			height:10vw;
+			line-height: 10vw;
+			margin: 14.4vw auto;
+			margin-bottom:0; 
+			font-size: 4vw;
+			color:#666;
+		}
+		.history p span{
+			height:10vw;
+			width: 10vw;
+			display: inline-block;
+			float: right;
+			text-align: center;
+			line-height: 10vw;
+			font-size: 3.8vw;
+			color:#666;
+		}
+		.h_list a{
+			padding: 1vw 2vw;
+			background:#f3f1f1;
+			margin: 2vw;
+			font-size: 3.4vw;
+			border-radius: 3vw;
+		}
+		.Alert{
+			width: 70vw;
+			height: 30vw;
+			background: #fff;
+			position: fixed;
+			top:0;
+			bottom: 0;
+			left:0;
+			right: 0;
+			margin: auto;
+			z-index: 9999;
+			display: fixed;
+		}
+		.Alert p{
+			width: 100%;
+			height: 10vw;
+			line-height: 10vw;
+			text-align: center;
+			margin-top: 6vw;
+			font-size: 5vw;
+		}
+		.Alert span{
+			width: 30vw;
+			height: 9vw;
+			text-align: center;
+			line-height: 9vw;
+			display: inline-block;
+			margin: 2.9vw ;
+			font-size: 5vw;
+			color:#fff;
+
+		}
+		.Alert .f_clear{
+		
+			background: #ada7a7;
+		}
+		.Alert span:last-child{
+			margin-left: 0;
+			background: #f44735;
+		}
+		
+    </style>
+</head>
+<body>
+	<div class="ht_con">
+		<div class="S_input">
+			<span class="S_left"><a href="javascript:history.go(-1)"><i class="fa fa-angle-left"></i></a></span>
+				<div class="Imput">
+					<input type="text" placeholder="请输入书名、作者、关键词" id="input" v-model="book">
+					<span><i class="fa fa-camera-retro" class="I_r"></i></span>
+				</div>
+			<span class="S-right" v-on:click="Add()">搜索</span>
+		</div>
+		<div class="history">
+			<p class="h_t">历史搜索<span v-on:click="deleta()" v-show="historys.length>=1||newhisturys.length>=1"><i class="fa fa-trash-o"></i></span></p>
+			<div class="h_list">
+				<a href="" v-for="history in historys">{{history.txt}}</a>
+				<a href="" v-for="(val,index) in newhisturys">{{val.book}}</a>
+			</div>
+			<p v-show="historys.length==0&&newhisturys.length==0" style="text-align:center;">暂无历史记录......</p>
+		</div>
+		
+		<div class="Alert"  v-show="show">
+			<P>确认删除全部历史记录？</P>
+			<span v-on:click="FALSE()" class="f_clear">取消</span>
+			<span v-on:click="TRUE()">确定</span>
+		</div>
+		<div class="wrap" v-show="show"></div>
+	</div>
+
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$(".wrap").css({
+		     "z-index":"9998",
+		     "display":"none",
+		     "position": "fixed",
+		     "top": "0",
+		     "left": "0",
+		     "width":$(window).width()+"px",
+		     "height":$(window).height()+"px",
+		     "background":"rgba(0,0,0,0.6)"
+			 })
+
+		var oInput=document.getElementById("input");
+		Element.prototype.holder=function(){
+			var thisVal=this.value;
+			this.onfocus=function (){
+				if(this.value==thisVal){
+					this.value="";
+		
+				}
+			}
+			this.onblur=function (){
+				if(this.value==""){
+					this.value=thisVal;
+				}
+			}
+		}
+	})
+		</script>
+
+		<script type="text/javascript">
+
+
+	new Vue({
+		el:".ht_con",
+		data:{
+			historys:[
+						 {
+					 
+					        txt:"爱夏了夏天",
+					      },
+					      
+					      {
+					       
+					        txt:"夏墅堰",
+					      },
+					      {
+					       
+					        txt:"陈迹·清欢",
+					      },
+					      {
+					        
+					        txt:"如果悲伤没有眼泪",
+					      },
+					      {
+					        
+					        txt:"偏爱",
+					      },
+					      {
+					        
+					        txt:"一个人的天光",
+					      },
+					      {
+					      	txt:'首都周围的八大集团军',
+					      },
+					],
+			newhisturys:[],
+			book:'',											
+			show:false,
+			hide:true,
+				
+		},
+			
+
+		methods:{
+				deleta:function(){
+
+					this.show=true;
+				},
+				Add:function(){
+
+						if(this.book!=""){
+					       
+							this.newhisturys.push({
+								book:this.book,
+								
+							})
+
+						}
+						this.book="";
+				},
+				TRUE:function(){
+					this.historys.splice(0,this.historys.length);
+					this.newhisturys.splice(0,this.newhisturys.length);
+					// this.book="";
+					this.show=false
+		 
+				},
+
+				FALSE:function(){
+					this.show=false
+				      }				
+			}
+	})
+
+		</script>
+</body>
+</html>

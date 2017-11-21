@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>on绑定事件</title>
+	<style type="text/css">
+	*{padding: 0;margin: 0;list-style-type:none;}
+	#demo{width: 300px;background: #f06562;border:1px solid #f00;margin:100px auto;display: block;}
+	#demo li{line-height:50px;border:1px solid #f00;text-align: center;cursor: pointer;color:#fff;}
+	#demo li:hover{background: #f00;}
+	</style>
+</head>
+<body>
+	<ul id="demo">
+		<li @click="clickme()">单击事件</li>  <!-- 可以缩写为： @click="clickme" clickme() 括号可加可不加   -->
+		<li v-on:dblclick="dblclickme()">双击事件</li>
+		<li @mouseover="mouseoverme()">鼠标移入事件</li>  <!-- @mouseenter也可以 -->
+		<li v-on:mouseout="mouseoutme('mouseleave')">鼠标移出事件</li>
+	</ul>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#demo",
+		data:{
+			
+		},
+		methods:{
+			clickme:function(){
+				alert("我是单击产生的");
+			},
+			dblclickme:function(){
+				alert("我是双击产生的");
+			},
+			mouseoverme:function(){
+				alert("我是鼠标移入产生的");
+			},
+			mouseoutme:function(p){//传参  p
+				alert("我是鼠标移出产生的");
+				console.log(p)
+			}
+		}
+	})
+	</script>
+</body>
+</html>

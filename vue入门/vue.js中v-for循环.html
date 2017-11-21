@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-for循环</title>
+	<style>
+	*{padding: 0;margin: 0;list-style-type:none;}
+
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<p>最受欢迎港台明星排行榜</p>
+		<ul>
+			<li v-for="(singer,index) in singers">
+				{{singer.num}} {{singer.name}}  （索引值为：{{index}}）
+			</li>
+		</ul>
+
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#demo",
+		data:{
+
+			singers:[
+				{num:1,name:'王菲'},
+				{num:2,name:'谢霆锋'},
+				{num:3,name:'张柏芝'},
+				{num:4,name:'钟欣桐'},
+			]
+			
+		}
+
+
+
+	})
+
+	</script>
+</body>
+</html>

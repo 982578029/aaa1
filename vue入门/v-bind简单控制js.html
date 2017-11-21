@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js中简单控制JS</title>
+</head>
+<body>
+	<div id="dome">
+		<img v-bind:src="num+'.jpg'" alt="">
+		<p>{{num==1?'斑马':'豹子'}}</p>
+		<!-- 简单的判断语句 如果num==1 显示“斑马”，否则显示“豹子” -->
+		<button v-on:click="clickme()">点击切换</button>
+	</div>
+	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+
+	// var n=Math.ceil(Math.random()*2);
+	// console.log(n);
+	
+	var app=new Vue({
+		el:"#dome",
+		data:{
+			num:"1"
+		},
+		methods:{
+			clickme:function(){
+				// this.num=Math.ceil(Math.random()*2); 产生一个随机数，下摄入只能产生1或者0;
+				// this.num=1;
+				if(this.num==1){
+					this.num=2;
+				}
+				else{
+					this.num=1
+				}
+			}
+		}
+	})
+	</script>
+</body>
+</html>

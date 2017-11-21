@@ -1,0 +1,157 @@
+@charset="utf-8";
+html,body{
+	width: 100%;
+	height: 100%;
+	position:relative;
+	z-index:0;
+	background-image:url(../images/bg.webp);
+	background-position:center top;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.app{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: -9;
+	overflow: hidden;
+}
+.app_pic{
+	width:33vw;
+	height:33vw;
+	margin: 18vw auto;
+	margin-bottom: 10vw;
+}
+.app_pic img{
+	width:100%;
+	height: 100%;
+}
+.name,.pass{
+	width:75vw;
+	height:11.3vw;
+	border-bottom:1px solid #bfbfbf;
+	margin:3.2vw auto;
+}
+.name label,.pass label{
+	height:7vw;
+	width:7vw;
+	display: block;
+	line-height: 11.3vw;
+	font-size: 5vw;
+	color:#fff;
+	float:left;
+	text-align: center;
+	margin:1.5vw; 
+}
+.name label{
+	background-image:url(../images/name.png);
+	background-size:100%;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+.pass label{
+	background-image:url(../images/pass.png);
+	background-size:100%;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+.name input,
+.pass input{
+	background: transparent;
+	width:60vw;
+	height:11.3vw;
+	overflow:hidden;
+	float: right;
+	border:none;
+	line-height: 11.3vw;
+	font-size: 5vw;
+	color:#fff;
+}
+.submit{
+	width:75vw;
+	height:10.6vw;
+	margin:10.8vw auto;
+}
+#btn{
+	width:100%;
+	height:10.6vw;
+	border:none;
+	font-size: 6vw;
+	line-height: 10.6vw;
+	font-weight: 600;
+	background: #f64f5e;
+	border-radius: 5vw;
+	color:#fff;
+}
+.a_btn{
+	width:90%;
+	margin:2vw auto;
+}
+.a_btn a:first-child{
+	font-size:4vw;
+	color:#fff;
+	float:left;
+}
+.a_btn a:last-child{
+	font-size:4vw;
+	color:#f64f5e;
+	float:right;
+}
+.other{
+
+	width:90%;
+	margin:1vh auto;
+}
+.other p{
+     margin-top: 16.6vw;
+	width:100%;
+	text-align:center;
+	font-size:6vw;
+	color:#fff;
+	position: relative;
+}
+.other p span{
+	width:24.5vw;
+	height:1px;
+	display:block;
+	border-top: 1px solid #fff7f7;
+	position:absolute;
+}
+.other p span:first-child{
+	left:9vw;
+	top:4.5vw;
+}
+.other p span:last-child{
+	right:9vw;
+	top:4.5vw;
+}
+.lin{
+	width:75%;
+	margin:0 auto;
+}
+.other .lin a{
+	width:9.6vw;
+	height:9.6vw;
+	display:inline-block;
+	float:left;
+	margin:6vw;
+}
+.other .lin a:nth-child(1){
+	background-image:url(../images/QQ.png);
+	background-size:100%;
+	background-position:center;
+	background-repeat: no-repeat;
+}
+.other .lin a:nth-child(2){
+	background-image:url(../images/WB.png);
+	background-size:100%;
+	background-position:center;
+	background-repeat: no-repeat;
+}
+.other .lin a:nth-child(3){
+	background-image:url(../images/WX.png);
+	background-size:100%;
+	background-position:center;
+	background-repeat: no-repeat;
+}

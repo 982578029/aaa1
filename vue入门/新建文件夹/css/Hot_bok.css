@@ -1,0 +1,157 @@
+@charset="utf-8";
+
+body{
+	width:100%;
+	height:100%;
+	background: #f3f1f1;
+}
+#wrapper {
+	position: relative;
+	z-index: 1;
+	height: 56vw;
+	width: 100%;
+	overflow: hidden;
+	-ms-touch-action: none;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	height: 56vw;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller ul {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#scroller li {
+	width: 33vw;
+	height: 56vw;
+	float: left;
+	background: #fff;
+	border-right:1px solid #ccc;
+}
+.book_pic{
+	width:26vw;
+	overflow:hidden;
+	margin:0 auto;
+}
+.book_pic img{
+	width:100%;
+	height:100%;
+}
+.book_tit{
+	width:24vw;
+	margin:0 auto;
+	margin-top:3vw;
+	text-align:center;
+	white-space:nowrap;
+	overflow:hidden;
+	font-size: 3vw;
+}
+.book_tea{
+	width:24vw;
+	margin:1vw auto;
+	text-align:center;
+	color:#858584;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.bk_l{
+	width:100%;
+	margin-top:2vw;
+	background: #fff;
+	padding-top: 2vw;
+
+}
+.bk_c{
+	width:95vw;
+	margin:2vw auto;
+	overflow:hidden;
+}
+.bk_l ul li{
+	width:100%;
+	border-bottom: 1px solid #ccc;
+	overflow:hidden;
+}
+.bk_l .h_t{
+	width:94vw;
+	height:4.8vw;
+	padding:0 3vw;
+	line-height:4.8vw;
+}
+.hot_tt{
+	height:4.8vw;
+	line-height:4.8vw;
+	display:inline-block;
+	color:#f64f5e;
+	margin-left: 5vw;
+	position:relative;
+}
+.hot_tt i{
+	width:4.4vw;
+	height:4.4vw;
+	display:inline-block;
+	position:absolute;
+	top:0;
+	left:-5vw;
+}
+.hot_tt i{
+	background-image:url("../images/hot.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.bk_l ul li .bk_c .b_pic{
+	width:26vw;
+	overflow:hidden;
+	float:left;
+}
+.b_pic img{
+	width:100%;
+	height:100%;
+}
+.bk_l ul li .bk_c .b_con{
+	width:69vw;
+	float:left;
+}
+.b_con p,.book_tt{
+	padding-left: 4vw;
+}
+.b_tlt{
+	font-size:3vw;
+	color:#000;
+	height:6vw;
+	line-height:6vw;
+}
+.b_lder{
+	font-size:2.5vw;
+	color:#888;
+	height:6vw;
+	line-height:6vw;
+}
+.b_lder span{
+	width:6vw;
+	height:6vw;
+	border-radius: 50%;
+	color:#000;
+	display:inline-block;
+}

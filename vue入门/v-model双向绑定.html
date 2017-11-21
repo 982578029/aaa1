@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model数据双向绑定</title>
+</head>
+<body>
+	<div id="dome">
+		<input type="text" placeholder="请输入数字" v-model="txt">
+		<br>
+		<p style="color:#f00">{{txt}}</p>
+		<p style="color:#0f0" v-text="txt"></p>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#dome",
+		data:{
+			txt:""
+		}
+	})
+
+	</script>
+</body>
+</html>

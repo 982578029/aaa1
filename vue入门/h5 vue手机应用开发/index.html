@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5团购网</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/lb.js"></script>
+	
+</head>
+<body>
+	<!-- 定义容器元素 -->
+	<div id="app">
+	<!-- 第一步 定义组件自定义元素 -->
+		<!-- <home></home>
+		<list></list>
+		<detail></detail> -->
+
+<!-- 		 component元素 组件自定义元素：
+		 切换渲染的组件 是一个万能组件元素， 可以渲染任何组件，具体渲染哪个组件需要通过设置is 属性实现 -->
+		<!-- 通过compoent渲染 -->
+		<compoent v-bind:is="view"></compoent>
+	</div>
+	<!-- 模版标签定义首页模板 -->
+	<script type="text/template" id="tpl_home">
+	 <div>
+		 <nav><ul class="nav">
+		 	<li><a href="">首页</a></li>
+		 	<li><a href="">企业文化</a></li>
+		 	<li><a href="">最新动态</a></li>
+		 	<li><a href="">最新资讯</a></li>
+		 	<li><a href="">联系我们</a></li>
+		 </ul></nav>
+		 <img src="images/t01.jpg" alt="" style="width: 100%;height: 100%;">
+	 </div> 
+	</script>
+	<script type="text/template" id="tpl_list">
+	 <div>
+		 <p>list template</p>
+		 <img src="images/t010fa93a99715aad32.png" alt="" style="width: 100%;height: 100%;">
+	 </div> 
+	</script>
+	<script type="text/javascript">
+		size();
+          window.onresize=function(){
+            size();
+          };
+          function size(){
+            var html=document.getElementsByTagName('html')[0];
+            html.style.fontSize=10*(window.innerWidth/375)+"px";
+            if(window.innerWidth=="375px"){
+              window.innerWidth="375px";
+            }
+          }
+     $(".nav li").on("click",function(){
+     	$(this).addClass(".showLi").siblings().removeClass(".showLi")
+     })
+	</script>
+	<script type="text/javascript" src="js/vue 2.0.8.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

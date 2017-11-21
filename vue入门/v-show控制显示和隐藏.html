@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js控制显示/隐藏</title>
+</head>
+<body>
+	<div id="dome" v-show="show"> 
+	<!-- v-show 通过判断，是否显示或隐藏   值=true 为显示  false：隐藏-->
+			卡视角<br>
+				大闸蟹<br>
+			  缴纳罚款就撒老看萨芬，<br>
+			  安静纷扰破啊师傅公按，<br>
+			  爱上及福利费借口老师，<br>
+			  啊师傅姐姐啊师傅面积，<br>
+			  老师就打开了高科技了；<br>
+
+
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#dome",
+		data:{
+			show:true
+		}
+
+
+
+	})
+
+
+	</script>
+</body>
+</html>

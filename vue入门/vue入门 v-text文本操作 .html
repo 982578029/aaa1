@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue入门</title>
+</head>
+<body>
+	<div id="dome">
+		<h1>{{name}},欢迎来到Vue学习课堂！</h1>
+		<p v-text="'今天是'+year+'年'+month+'月'+date+'日星期'+day"></p>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	// var arr1="日一二三四五六";                  //字符串方式
+	var arr2=["日","一","二","三","四","五","六"]; //数组方式
+	var app=new Vue({
+		el:"#dome", //el：（声明vue.js管理的边界） 需要控制的元素
+		data:{
+			name:"张三", //data:核心作用是存放页面中的数据，需要的是一个对象
+			year:new Date().getFullYear(),
+			month:new Date().getMonth()+1,
+			date:new Date().getDate(),
+			// day:arr1.charAt(new Date().getDay())      //字符串方式获取索引值
+			day:arr2[new Date().getDay()]                //数组方式获取索引值
+
+		}
+	})
+
+
+	</script>
+</body>
+</html>

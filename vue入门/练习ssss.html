@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		#demo{
+			margin:20px auto;
+			width: 1200px;
+			height: 500px;
+			border:1px solid #998;
+		}
+		nav{
+			width: 1200px;
+			height: 100px;
+		}
+		nav ul{
+			overflow: hidden;
+		}
+		nav ul li{
+			float:left;
+			width: 300px;
+			height: 100px;
+			line-height: 100px;
+			font-size: 30px;
+			color:#0f0;
+			background: #123;
+			text-align: center;
+		}
+		#con{
+			width: 1200px;
+			line-height: 400px;
+			text-align: center;
+			font-size:30px;
+			color:#0f0;
+		}
+		#con span{
+			color:#333;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<nav>
+			<ul class="nav" v-bind:class="[cont]">
+				<li class="mmk" v-on:click="change('GT-1')">GT-1</li>
+				<li class="mmk2" v-on:click="change('GT-2')">GT-2</li>
+				<li class="mmk3" v-on:click="change('GT-3')">GT-3</li>
+				<li class="mmk4" v-on:click="change('GT-4')">GT-4</li>
+			</ul>
+		</nav>
+		<br/>
+		<div id="con"><span>当前页面内容为:</span>{{cont}}</div>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+		var sss=new Vue({
+			el:"#demo",
+			data:{
+				cont:"GT-1",
+			},
+			methods:{
+				change:function(con){
+					this.cont=con;
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>

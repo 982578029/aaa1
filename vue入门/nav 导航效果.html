@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nav 导航</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+		list-style-type:none;
+	}
+	#demo{
+		width: 520.5px;
+		height: 500px;
+		margin: 50px auto;
+		border: 1px solid #5597b4;
+		box-sizing:border-box;
+	}
+	li{
+		float: left;
+		padding:15px 18px;
+		background: #5597b4;
+		color:#fff;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+	#con{
+		text-align: center;
+		line-height: 200px;
+		font-size: 30px;
+		color:#5597b4;
+
+	}
+		.home .home,
+		.news .news,
+		.projects .projects,
+		.services .services,
+		.contact .contact{
+		background:skyblue;
+	}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<nav>
+			<ul class="nav" v-bind:class="[cont]">
+				<li class="home" v-on:click="change('home')">home</li>
+				<li class="news" v-on:click="change('news')">news</li>
+				<li class="projects" v-on:click="change('projects')">projects</li>
+				<li class="services" v-on:click="change('services')">services</li>
+				<li class="contact" v-on:click="change('contact')">contact</li>
+			</ul>
+		</nav><br>
+		<div id="con">当前页面:{{cont}}</div>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#demo",
+			data:{
+				cont:'home'
+			},
+			methods:{
+				change:function(con){
+					this.cont=con;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

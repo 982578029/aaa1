@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue.js条件判断语句</title>
+</head>
+<body>
+	<div id="dome">
+		<p v-if="login">{{name}},欢迎来到Vue.js课堂</p>
+		<!-- v-if  条件判断语句 值为true:加载; false:不加载 -->
+		<button v-else>登录</button>
+		<!-- 如果加载“{{name}},欢迎来到Vue.js课堂”，就不显示“登录” -->
+		<!-- 如果未加载“{{name}},欢迎来到Vue.js课堂”，就显示“登录” -->
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#dome",
+		data:{
+			name:"黄勇",
+			login:true //或者false   true:加载  false:不加载
+			// 如果用户已登录  那么login为true,  否则,login为false 
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移上提醒功能</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	#demo{
+		width: 300px;
+		height: 200px;
+		margin: 100px auto;
+		padding: 20px;
+		box-sizing: border-box;
+		border:1px solid #333;
+		position: relative;
+	}
+	#demo p{
+		height: 40px;
+		line-height: 40px;
+	}
+	#demo p input{
+		padding-left:20px; 
+	}
+	#demo p button{
+		width: 50px;
+		height: 25px;
+		margin-right: 20px;
+	}
+	#txt{
+		position: absolute;
+		width: 200px;
+		height: 30px;
+		padding: 10px;
+		font-size: 10px;
+		color:#dfb86d;
+		line-height: 16px;
+		background: #fffde4;
+		top:130px;
+		left:30px;
+		border-radius: 5px;
+		border:1px solid #dfb86d;
+	}
+	</style>
+</head>
+<body>
+	<div id="demo">	
+		<form action="">
+			<p>邮箱: &nbsp;<input type="text"></p>
+			<p>密码: &nbsp;<input type="password"></p>
+			<p><input type="checkbox" v-on:mouseenter="mouseenterme" @mouseleave="mouseleaveme"> &nbsp;十天内免登陆</p>
+			<div v-show="seen" id="txt">未来您的信息安全，请不要在网吧或者公用电脑上使用此功能!</div>
+			<p><button>登录</button><button>去注册</button></p>
+		</form>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#demo",
+		data:{
+			seen:false
+		},
+		methods:{
+			mouseenterme:function(){
+			this.seen=true
+			},
+			mouseleaveme:function(){
+				this.seen=false
+			}
+		}
+	})
+
+
+	</script>
+</body>
+</html>

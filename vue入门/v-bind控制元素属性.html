@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue.js控制元素属性</title>
+
+</head>
+<body>
+	<div id="dome">
+		<a v-bind:href="htef">
+			<img v-bind:src="img" v-bind:title="txt"><br>
+			<span>{{txt}}</span>
+		</a>
+	</div>
+		<script type="text/javascript" src="vue 2.0.8.js"></script>
+		<script type="text/javascript">
+		var app=new Vue({
+			el:"#dome",
+			data:{
+				htef:"http://www.23SC.CN",
+				img:"1.jpg",
+				txt:"美女靓照"
+			}
+		})
+
+		</script>
+</body>
+</html>

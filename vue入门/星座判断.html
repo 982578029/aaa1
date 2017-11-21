@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星座判断</title>
+	<style>
+
+	#demo{
+		width: 500px;
+		height: 50px;
+		line-height: 50px;
+		margin: 50px auto;
+		border:1px solid pink;
+		background: pink;
+		text-align: center;
+		border:1px solid #ff2455;
+	}
+	button{
+		margin-left:20px; 
+	}
+
+	</style>
+</head>
+<body>
+	<div id="demo">
+		请输入你要查询的星座:
+		<input type="text" v-model="xingzuoming">
+		<button v-on:click="search">查询</button>
+		<div v-html="con"></div>
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#demo",
+		data:{
+			xingzuoming:"",
+			con:""
+
+		},
+		methods:{
+			search:function(){
+				switch(this.xingzuoming){
+					case"水瓶座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"金牛座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"射手座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"天蝎座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"处女座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"狮子座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					case"天秤座":
+					this.con="恭喜你,水瓶座的人...........";
+					break;
+					default:
+					this.con="很抱歉，您的输入有误，请输入正确星座，如：'金牛座'、'处女座'等";
+				}
+			}
+		}
+
+
+	})
+
+	</script>
+</body>
+</html>

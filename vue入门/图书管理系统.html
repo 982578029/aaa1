@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图书管理系统</title>
+	<style>
+	*{padding: 0;margin: 0;}
+	table{
+		width: 1090px;
+		margin: 30px auto;
+	}
+	table,td{
+		border:1px solid #ccc;
+		border-collapse: collapse;
+	}
+	tr{
+		line-height: 40px;
+	}
+	th{
+		background: #ccc;
+		opacity: .5;
+	}
+	td{
+		line-height: 30px;
+		text-align: center;
+	}
+	td input{
+		width: 50px;
+		height: 20px;
+		border:1px solid orange; 
+
+	}
+	.add{
+		position:relative;
+		width: 1030px;
+		margin: 10px auto;
+		border:1px solid #ccc;
+		padding: 30px;
+	}
+	.add p{
+		line-height: 50px;
+	}
+	.add p:nth-child(1){
+		width: 200px;
+		text-align: center;
+		line-height: 50px;
+		background: #fff;
+		position: absolute;
+		top:-25px;
+		left:20px;
+		font-size: 24px;
+	}
+	p input{
+		width: 200px;
+		margin-left: 10px;
+		line-height: 20px;
+	}
+	button{
+		width: 80px;
+		line-height: 30px;
+	}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>书名</th>
+				<th>作者</th>
+				<th>价格</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="(book,index) in books">
+				<td>{{book.id}}</td>
+				<td>{{book.name}}</td>
+				<td>{{book.author}}</td>
+				<td>{{book.price}}</td>
+				<td>
+					<input type="button" value="删除" @click="delet(index)">
+				</td>
+			</tr>
+		</table>
+		<div class="add">
+			<p>添加新书</p>
+			<p>书名:<input type="text" v-model="newbooks.name"></p>
+			<p>作者:<input type="text" v-model="newbooks.author"></p>
+			<p>价格:<input type="text" v-model="newbooks.price"></p>
+			<p>
+				<button @click="add()">添加</button>
+			</p>
+
+
+
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="vue 2.0.8.js"></script>
+	<script type="text/javascript">
+	var app=new Vue({
+		el:"#demo",
+		data:{
+			books:[
+				{id:1,name:'红楼梦',author:'曹雪芹',price:'8.88'},
+				{id:2,name:'水浒传',author:'施耐庵',price:'8.08'},
+				{id:3,name:'西游记',author:'吴承恩',price:'9.48'},
+				{id:4,name:'三国演义',author:'罗贯中',price:'7.80'}
+
+			],
+			newbooks:{
+				id:0,
+				name:'',
+				author:'',
+				price:'',
+			}
+		},
+		methods:{
+			delet:function(str){			
+					if(this.books.length>1){
+					
+						this.books.splice(str,1);
+					}else{
+							var dttl=confirm("这是最后一本书了，您确定删除吗？")
+							if(dttl){
+								this.books.splice(str,1);
+							}
+					}
+
+			},
+			add:function(){
+				var axID=0;
+				for(var i=0;i<this.books.length;i++){
+					if(axID<this.books[i].id){
+						axID=this.books[i].id;
+						// this.newbooks.name="";
+						// this.newbooks.author="";
+						// this.newbooks.price="";
+					}
+				}
+				// this.newbooks.id=axID+1;
+				if(this.newbooks.name==""||this.newbooks.author==""||this.newbooks.price==""){
+						alert("你所添加的新书资料不全，无法添加！请添写完整的新书资料！")
+				}else{
+					this.newbooks.id=axID+1;
+					this.books.push(this.newbooks);
+					this.newbooks="";
+				}
+				
+			}
+
+		}
+	
+
+	})
+	</script>
+</body>
+</html>
